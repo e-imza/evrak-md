@@ -1,0 +1,31 @@
+{
+  "name": "@e-imza/evrak-md",
+  "version": "0.1.0",
+  "description": "UYAP UDF, PDF, DOCX ve görselleri yerelde Markdown ve izlenebilir yapay zeka girdilerine dönüştürür.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22.13.0" },
+  "bin": { "evrak-md": "bin/evrak-md.js" },
+  "exports": "./src/index.js",
+  "files": ["bin", "src", "skills", "scripts/install-skill.js", "docs", "README.md", "LICENSE"],
+  "repository": { "type": "git", "url": "https://github.com/e-imza/evrak-md.git" },
+  "scripts": {
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "examples": "node scripts/examples.js",
+    "check": "node --check bin/evrak-md.js && node --check src/index.js && npm test"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "1.0.9",
+    "@tesseract.js-data/eng": "1.0.0",
+    "@tesseract.js-data/tur": "1.0.0",
+    "fast-xml-parser": "5.11.1",
+    "mammoth": "1.13.0",
+    "pdfjs-dist": "6.3.289",
+    "sharp": "0.35.5",
+    "tesseract.js": "7.0.0",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2",
+    "yauzl": "3.4.0"
+  },
+  "devDependencies": { "pdfkit": "0.20.2", "yazl": "3.3.1" }
+}

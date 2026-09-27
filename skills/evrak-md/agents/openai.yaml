@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evrak MD"
+  short_description: "UYAP ve resmî evrakları yerel Markdown'a dönüştür"
+  default_prompt: "$evrak-md ile bu belgeyi kaynak bilgileri ve görselleri korunarak Markdown'a dönüştür."

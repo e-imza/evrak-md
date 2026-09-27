@@ -1,0 +1,8 @@
+node_modules/
+output/
+artifacts/
+tmp/
+*.tgz
+.DS_Store
+.env*
+
