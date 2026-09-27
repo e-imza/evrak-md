@@ -5,9 +5,11 @@ const require = createRequire(import.meta.url);
 export async function readPdf(buffer, context) {
   const pdfjs = await import('pdfjs-dist/legacy/build/pdf.mjs');
   const root = path.dirname(require.resolve('pdfjs-dist/package.json'));
+  // PDF.js validates a forward-slash suffix even when Node reads a Windows path.
+  const resourcePath = name => path.join(root, name).replaceAll('\\', '/') + '/';
   const task = pdfjs.getDocument({ data: new Uint8Array(buffer), isEvalSupported: false,
-    useSystemFonts: false, cMapUrl: path.join(root, 'cmaps/'), cMapPacked: true,
-    standardFontDataUrl: path.join(root, 'standard_fonts/'), wasmUrl: path.join(root, 'wasm/') });
+    useSystemFonts: false, cMapUrl: resourcePath('cmaps'), cMapPacked: true,
+    standardFontDataUrl: resourcePath('standard_fonts'), wasmUrl: resourcePath('wasm') });
   let doc;
   try {
     doc = await task.promise;
